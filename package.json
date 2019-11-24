@@ -1,0 +1,23 @@
+{
+  "name": "pmd-action",
+  "version": "1.0.0",
+  "description": "This action allows to use PMD Source Code Analyzer from GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfdx-actions/pmd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfdx-actions/pmd/issues"
+  },
+  "homepage": "https://github.com/sfdx-actions/pmd#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.0"
+  }
+}
