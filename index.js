@@ -8,12 +8,11 @@ try {
 }
 
 function installPMD(){
-  var home = 'cd $HOME'
-  var download = 'wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip'
-  var unzip = 'unzip pmd-bin-6.19.0.zip'
+  var download = 'wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip -P /tmp/'
+  var unzip = 'unzip pmd-bin-6.19.0.zip -d /tmp'
   var shopt = 'shopt -s expand_aliases'
-  var alias = 'alias pmd="$HOME/pmd-bin-6.19.0/bin/run.sh pmd"'
-  exec(home+' && '+download+' && '+unzip+' && '+shopt+' && '+alias, function(error, stdout, stderr){
+  var alias = 'alias pmd="/tmp/pmd-bin-6.19.0/bin/run.sh pmd"'
+  exec(download+' && '+unzip+' && '+shopt+' && '+alias, function(error, stdout, stderr){
     if(error) throw(stderr)
 	console.log(stdout)
   })
