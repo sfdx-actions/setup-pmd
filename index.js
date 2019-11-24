@@ -13,6 +13,6 @@ function installPMD(){
   var shopt = 'shopt -s expand_aliases'
   var alias = 'echo "alias pmd=\'/tmp/pmd-bin-6.19.0/bin/run.sh pmd\'" >> ~/.bash_aliases && source ~/.bash_aliases'
   exec(download+' && '+unzip+' && '+shopt+' && '+alias, function(error, stdout, stderr){
-    if(error) throw(stderr)
+    if(error) console.log(stderr)
   })
 }
