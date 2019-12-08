@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: sfdx-actions/pmd@v1
+      - uses: sfdx-actions/setup-pmd@v1
       - name: run-pmd
         run: $HOME/pmd/bin/run.sh pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
 ```
