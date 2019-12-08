@@ -24,8 +24,7 @@ function referencePMD(){
   var pt = `echo 'export PATH="$PATH:$HOME/bin/"' >> ~/.bashrc`
   var cmd = 
 `echo '#! /bin/bash
-$HOME/pmd/run.sh pmd "$@"' > $HOME/bin/pmd.sh
-`
+$HOME/pmd/run.sh pmd "$@"' > $HOME/bin/pmd.sh`
   var cm = 'chmod +x $HOME/bin/pmd.sh'
   exec(mk+' && '+pt+' && '+cmd+' && '+cm, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
