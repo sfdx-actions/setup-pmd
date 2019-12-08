@@ -17,3 +17,14 @@ function installPMD(){
     core.debug(stdout)
   })
 }
+
+function referencePMD(){
+  var cmd = 
+`echo '#! /bin/sh
+$HOME/pmd/run.sh pmd' > /bin/pmd
+`
+  exec('sudo '+cmd, function(error, stdout, stderr){
+    if(error) throw(stderr)
+    core.debug(stdout)
+  })
+}
