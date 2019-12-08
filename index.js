@@ -21,7 +21,7 @@ function installPMD(){
 function referencePMD(){
   var cmd = 
 `echo '#! /bin/sh
-$HOME/pmd/run.sh pmd' > /bin/pmd
+$HOME/pmd/run.sh pmd "$@"' > /bin/pmd
 `
   exec('sudo '+cmd, function(error, stdout, stderr){
     if(error) throw(stderr)
