@@ -21,13 +21,11 @@ function installPMD(){
 
 function referencePMD(){
   var mk = 'sudo mkdir /snap/bin && sudo chmod -R 757 /snap/bin'
-  var pt = `echo "export PATH=$PATH:$HOME/bin/" >> $HOME/.bashrc`
-  var rn = `. "$HOME/.bashrc"`
   var cmd = 
 `sudo echo '#! /bin/bash
 $HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`
-  var cm = 'chmod +x /snap/bin/pmd.sh'
-  exec(mk+' && '+pt+' && '+rn+' && '+cmd+' && '+cm, function(error, stdout, stderr){
+  var cm = 'chmod +x /snap/bin/pmd'
+  exec(mk+' && '+cmd+' && '+cm, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
     core.debug(stdout)
   })
