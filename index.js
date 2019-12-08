@@ -22,7 +22,7 @@ function installPMD(){
 function referencePMD(){
   var cmd = 
 `echo '#! /bin/sh
-$HOME/pmd/run.sh pmd "$@"' > /user/bin/pmd
+$HOME/pmd/run.sh pmd "$@"' > /usr/bin/pmd
 `
   exec('sudo '+cmd, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
