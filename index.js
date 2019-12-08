@@ -20,11 +20,13 @@ function installPMD(){
 }
 
 function referencePMD(){
+  var mk = 'mkdir $HOME/bin'
+  var pt = 'export PATH="$PATH:$HOME/bin/"'
   var cmd = 
 `echo '#! /bin/sh
 $HOME/pmd/run.sh pmd "$@"' > $HOME/bin/pmd
 `
-  exec('sudo '+cmd, function(error, stdout, stderr){
+  exec(mk+' && '+pt+' && '+cmd, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
     core.debug(stdout)
   })
