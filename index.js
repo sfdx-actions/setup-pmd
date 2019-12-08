@@ -13,7 +13,7 @@ function installPMD(){
   var mk = 'mkdir $HOME/pmd'
   var mv = 'mv /tmp/pmd-bin-6.19.0/* $HOME/pmd'
   exec(download+' && '+unzip+' && '+mk+' && '+mv, function(error, stdout, stderr){
-    if(error) throw(stderr)
+    if(error) core.setFailed(stderr)
     core.debug(stdout)
     referencePMD()
   })
