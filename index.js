@@ -20,7 +20,7 @@ function installPMD(){
 }
 
 function referencePMD(){
-  var mk = 'mkdir $HOME/bin'
+  var mk = 'mkdir /snap/bin'
   var pt = `echo "export PATH=$PATH:$HOME/bin/" >> $HOME/.bashrc`
   var rn = `. "$HOME/.bashrc"`
   var cmd = 
