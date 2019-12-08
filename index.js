@@ -25,7 +25,7 @@ function referencePMD(){
   var rn = `. "$HOME/.bashrc"`
   var cmd = 
 `sudo echo '#! /bin/bash
-$HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd.sh`
+$HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`
   var cm = 'chmod +x /snap/bin/pmd.sh'
   exec(mk+' && '+pt+' && '+rn+' && '+cmd+' && '+cm, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
