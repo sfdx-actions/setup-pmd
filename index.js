@@ -25,7 +25,7 @@ function referencePMD(){
 $HOME/pmd/run.sh pmd "$@"' > /bin/pmd
 `
   exec('sudo '+cmd, function(error, stdout, stderr){
-    if(error) throw(stderr)
+    if(error) core.setFailed(stderr)
     core.debug(stdout)
   })
 }
