@@ -15,6 +15,7 @@ function installPMD(){
   exec(download+' && '+unzip+' && '+mk+' && '+mv, function(error, stdout, stderr){
     if(error) throw(stderr)
     core.debug(stdout)
+    referencePMD()
   })
 }
 
