@@ -21,8 +21,8 @@ function installPMD(){
 
 function referencePMD(){
   var mk = 'mkdir $HOME/bin'
-  var pt = `echo "export PATH=$PATH:$HOME/bin/" >> $HOME/.profile`
-  var rn = `.  "$HOME/.profile"`
+  var pt = `echo "export PATH=$PATH:$HOME/bin/" >> $HOME/.bashrc`
+  var rn = `. "$HOME/.bashrc"`
   var cmd = 
 `sudo echo '#! /bin/bash
 $HOME/pmd/bin/run.sh pmd "$@"' > $HOME/bin/pmd.sh`
