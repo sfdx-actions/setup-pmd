@@ -21,12 +21,13 @@ function installPMD(){
 
 function referencePMD(){
   var mk = 'mkdir $HOME/bin'
-  var pt = `export PATH=$PATH:$HOME/bin/`
+  var pt = `echo "export PATH=$PATH:$HOME/bin/" >> $HOME/.profile`
+  var rn = `.  "$HOME/.profile"`
   var cmd = 
 `sudo echo '#! /bin/bash
-$HOME/pmd/bin/run.sh pmd "$@"' > /usr/local/bin/pmd.sh`
+$HOME/pmd/bin/run.sh pmd "$@"' > $HOME/bin/pmd.sh`
   var cm = 'chmod +x $HOME/bin/pmd.sh'
-  exec(mk+' && '+pt+' && '+cmd+' && '+cm, function(error, stdout, stderr){
+  exec(mk+' && '+pt+' && '+rn+' && '+cmd+' && '+cm, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
     core.debug(stdout)
   })
