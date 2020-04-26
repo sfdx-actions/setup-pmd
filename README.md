@@ -5,19 +5,31 @@ This action allows to use PMD Source Code Analyzer from GitHub Actions
 ## Example usage
 
 ```yaml
-name: PMD Source Code Analyzer on Push
+# This is a basic workflow to help you get started with Actions
 
-on: [push]
+name: PMD
 
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  pmd:
-  
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     steps:
-      - uses: sfdx-actions/setup-pmd@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: krukmat/setup-pmd@v0.4
       - name: run-pmd
-        run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
+        run: pmd -d $GITHUB_WORKSPACE/force-app/main/default/classes/ -R category/apex/design.xml -l apex -f text
 ```
 
 ## License
