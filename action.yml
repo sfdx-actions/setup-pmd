@@ -1,6 +1,6 @@
-name: 'PMD Source Code Analyzer Action'
-author: Felipe Echanique Torres
-description: 'This action allows to use PMD Source Code Analyzer from GitHub Actions'
+name: 'PMD Automatic reviewer'
+author: Matias Kruk
+description: 'This action allows to use PMD Source Code Analyzer from GitHub Actions and publish by Salesforce API REST'
 runs:
   using: 'node12'
   main: 'index.js'
