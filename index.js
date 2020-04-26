@@ -14,7 +14,6 @@ function installPMD(){
   var mv = 'mv /tmp/pmd-bin-6.19.0/* $HOME/pmd'
   exec(download+' && '+unzip+' && '+mk+' && '+mv, function(error, stdout, stderr){
     if(error) core.setFailed(stderr)
-    core.debug(stdout)
     referencePMD()
   })
 }
@@ -26,8 +25,6 @@ function referencePMD(){
 $HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`
   var cm = 'chmod +x /snap/bin/pmd'
   exec(mk+' && '+cmd+' && '+cm, function(error, stdout, stderr){
-    echo(mk+' && '+cmd+' && '+cm);
-    echo(stdout)
     if(error) core.setFailed(stderr)
     
   })
