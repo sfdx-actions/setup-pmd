@@ -1,6 +1,6 @@
 {
   "name": "setup-pmd-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This action allows to use PMD Source Code Analyzer from GitHub Actions",
   "main": "index.js",
   "scripts": {
