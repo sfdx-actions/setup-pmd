@@ -15,26 +15,26 @@ try {
   core.setFailed(error.message)
 }
 
-function installPMD(version){
-  var download = `wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F${version}/pmd-bin-${version}.zip -P /tmp -O pmd.zip`
+function installPMD(version) {
+  var download = `wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F${version}/pmd-bin-${version}.zip -O /tmp/pmd.zip`
   var unzip = 'unzip /tmp/pmd.zip -d /tmp'
   var mk = 'mkdir $HOME/pmd'
   var mv = 'mv /tmp/pmd/* $HOME/pmd'
-  exec(download+' && '+unzip+' && '+mk+' && '+mv, function(error, stdout, stderr){
-    if(error) core.setFailed(stderr)
+  exec(download + ' && ' + unzip + ' && ' + mk + ' && ' + mv, function (error, stdout, stderr) {
+    if (error) core.setFailed(stderr)
     core.debug(stdout)
     referencePMD()
   })
 }
 
-function referencePMD(){
+function referencePMD() {
   var mk = 'sudo mkdir -p /snap/bin && sudo chmod -R 757 /snap/bin'
-  var cmd = 
-`sudo echo '#! /bin/bash
+  var cmd =
+    `sudo echo '#! /bin/bash
 $HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`
   var cm = 'chmod +x /snap/bin/pmd'
-  exec(mk+' && '+cmd+' && '+cm, function(error, stdout, stderr){
-    if(error) core.setFailed(stderr)
+  exec(mk + ' && ' + cmd + ' && ' + cm, function (error, stdout, stderr) {
+    if (error) core.setFailed(stderr)
     core.debug(stdout)
   })
 }
