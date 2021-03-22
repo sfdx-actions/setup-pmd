@@ -16,6 +16,8 @@ jobs:
     
     steps:
       - uses: sfdx-actions/setup-pmd@v1
+        with:
+          pmd-version: '6.32.0'
       - name: run-pmd
         run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
 ```
