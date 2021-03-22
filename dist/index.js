@@ -16,10 +16,10 @@ try {
 }
 
 function installPMD(version) {
-  var download = `wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F${version}/pmd-bin-${version}.zip -O /tmp/pmd.zip`
-  var unzip = 'unzip /tmp/pmd.zip -d /tmp'
+  var download = `wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F${version}/pmd-bin-${version}.zip -P /tmp`
+  var unzip = `unzip /tmp/pmd-bin-${version}.zip -d /tmp`
   var mk = 'mkdir $HOME/pmd'
-  var mv = 'mv /tmp/pmd/* $HOME/pmd'
+  var mv = `mv /tmp/pmd-bin-${version}/* $HOME/pmd`
   exec(download + ' && ' + unzip + ' && ' + mk + ' && ' + mv, function (error, stdout, stderr) {
     if (error) core.setFailed(stderr)
     core.debug(stdout)
