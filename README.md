@@ -15,9 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: sfdx-actions/setup-pmd@v1
-      - name: run-pmd
-        run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
+      - name: "Checkout source code"
+        uses: actions/checkout@v2
+
+      - name: "Set PMD environment"
+        uses: lucam75/setup-pmd@v2
+
+      - name: "Run PMD Source Code Analyzer Action"
+        run: |
+            ls -la; ls -la ../
+            pmd -d ./force-app/main/default/classes -failOnViolation true -R category/apex/design.xml -f summaryhtml
+
 ```
 
 ## License
